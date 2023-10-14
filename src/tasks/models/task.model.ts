@@ -48,6 +48,20 @@ export class Task extends Model {
     })
     feedUrl: string;
 
+    @Column({
+        type: DataType.STRING,
+        allowNull: false,
+        defaultValue: 'jobs'
+    })
+    listingDescriptor: string;
+
+    @Column({
+        type: DataType.STRING,
+        allowNull: false,
+        defaultValue: 'job'
+    })
+    elementDescriptor: string;
+
     @Column
     completedAt?: Date;
 

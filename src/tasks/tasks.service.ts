@@ -11,18 +11,22 @@ export class TasksService {
     private taskRepository: typeof Task
   ) {}
 
-  async create(createTaskDto: CreateTaskDto) {
+  async create(createTaskDto: CreateTaskDto): Promise<Task> {
     const task = new Task();
     task.feedUrl = createTaskDto.feedUrl;
     return task.save();
   }
 
-  findAll() {
-    return `This action returns all tasks`;
+  async findAll(): Promise<Task[]> {
+    return this.taskRepository.findAll();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} task`;
+  async findOne(id: string) : Promise<Task> {
+    return this.taskRepository.findOne({
+      where: {
+        id,
+      }
+    })
   }
 
   update(id: number, updateTaskDto: UpdateTaskDto) {
