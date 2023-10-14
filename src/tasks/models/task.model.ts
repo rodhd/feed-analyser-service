@@ -2,7 +2,7 @@ import { UUID } from "sequelize";
 import { Sequelize } from "sequelize";
 import { Column, DataType, Model, Table } from "sequelize-typescript";
 
-enum TaskStatus {
+export enum TaskStatus {
     Created = "CREATED",
     InProgress = "IN PROGRESS",
     Completed = "COMPLETED",
@@ -66,5 +66,5 @@ export class Task extends Model {
     completedAt?: Date;
 
     @Column
-    numberOfPosts?: string;
+    numberOfPosts?: number;
 }

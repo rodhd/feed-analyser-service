@@ -4,6 +4,10 @@ import { AppService } from './app.service';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { Task } from './tasks/models/task.model';
 import { TasksModule } from './tasks/tasks.module';
+import { AnalyserService } from './analyser/analyser.service';
+import { EventEmitterModule } from '@nestjs/event-emitter';
+import { AnalyserModule } from './analyser/analyser.module';
+import { HttpModule, HttpService } from '@nestjs/axios';
 
 @Module({
   imports: [
@@ -20,9 +24,12 @@ import { TasksModule } from './tasks/tasks.module';
       synchronize: true,
       */
     }),
-    TasksModule
+    EventEmitterModule.forRoot(),
+    HttpModule,
+    TasksModule,
+    AnalyserModule
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, AnalyserService],
 })
 export class AppModule {}
