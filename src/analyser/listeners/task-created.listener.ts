@@ -13,6 +13,6 @@ export class TaskCreatedListener {
     async handleTaskCreatedEvent(event: TaskCreatedEvent) {
         console.log(`Handling task created event with ID ${event.id}`);
         await new Promise(r => setTimeout(r, 2000));
-        this.analyserService.analyse(event.id);
+        this.analyserService.analyseV2(event.id);
     }
 }

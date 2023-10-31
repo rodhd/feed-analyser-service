@@ -8,6 +8,7 @@ import { AnalyserService } from './analyser/analyser.service';
 import { EventEmitterModule } from '@nestjs/event-emitter';
 import { AnalyserModule } from './analyser/analyser.module';
 import { HttpModule, HttpService } from '@nestjs/axios';
+import { Post } from './analyser/models/post.model';
 
 @Module({
   imports: [
@@ -18,7 +19,7 @@ import { HttpModule, HttpService } from '@nestjs/axios';
       username: 'root',
       password: 'root',
       database: 'feed_analyser_service',
-      models: [Task],
+      models: [Task, Post],
       /*
       autoLoadModels: true,
       synchronize: true,

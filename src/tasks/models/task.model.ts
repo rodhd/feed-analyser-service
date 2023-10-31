@@ -67,4 +67,10 @@ export class Task extends Model {
 
     @Column
     numberOfPosts?: number;
+
+    @Column({
+        type: DataType.JSON,
+        defaultValue: []
+    })
+    fields: string[];
 }
