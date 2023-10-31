@@ -4,7 +4,7 @@ import { Task } from "src/tasks/models/task.model";
 @Table({
     tableName: 'posts'
 })
-export class Post extends Model {
+export class FeedPost extends Model {
     @Column({
         type: DataType.INTEGER({ unsigned: true }),
         primaryKey: true,

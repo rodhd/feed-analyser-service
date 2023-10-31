@@ -8,6 +8,6 @@ import { Task } from './models/task.model';
   imports: [SequelizeModule.forFeature([Task])],
   controllers: [TasksController],
   providers: [TasksService],
-  exports: [TasksService]
+  exports: [TasksService, SequelizeModule]
 })
 export class TasksModule {}
