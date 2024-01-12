@@ -21,6 +21,7 @@ import { AnalyserController } from './analyser/analyser.controller';
       password: 'root',
       database: 'feed_analyser_service',
       models: [Task, FeedPost],
+      logging: false,
       /*
       autoLoadModels: true,
       synchronize: true,
