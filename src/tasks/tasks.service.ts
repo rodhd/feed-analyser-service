@@ -19,6 +19,7 @@ export class TasksService {
     task.feedUrl = createTaskDto.feedUrl;
     task.listingDescriptor = createTaskDto.listingDescriptor;
     task.elementDescriptor = createTaskDto.elementDescriptor;
+    task.rootElementDescriptor = createTaskDto.rootElementDescriptor;
     task.fields = createTaskDto.fields;
     task.save();
 

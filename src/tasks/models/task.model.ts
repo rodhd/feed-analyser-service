@@ -73,4 +73,9 @@ export class Task extends Model {
         defaultValue: []
     })
     fields: string[];
+
+    @Column({
+        type: DataType.STRING
+    })
+    rootElementDescriptor?: string;
 }

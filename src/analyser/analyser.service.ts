@@ -26,7 +26,13 @@ export class AnalyserService {
             const parser = new XMLParser();
 
             let parsedData = parser.parse(response.data);
-            const posts = parsedData[task.listingDescriptor][task.elementDescriptor]
+            let posts;
+            if (!task.rootElementDescriptor) {
+                posts = parsedData[task.listingDescriptor][task.elementDescriptor]
+            }
+            else {
+                posts = parsedData[task.rootElementDescriptor][task.listingDescriptor][task.elementDescriptor]
+            }
             this.taskService.update(task.id, new UpdateTaskDto(TaskStatus.Completed, posts.length));
             if (task.fields.length > 0) {
                 await this.writePosts(task.id, task.fields, posts)
