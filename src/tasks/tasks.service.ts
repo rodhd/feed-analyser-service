@@ -21,6 +21,8 @@ export class TasksService {
     task.elementDescriptor = createTaskDto.elementDescriptor;
     task.rootElementDescriptor = createTaskDto.rootElementDescriptor;
     task.fields = createTaskDto.fields;
+    task.createdAt = new Date();
+    task.updatedAt = new Date();
     task.save();
 
     console.log(`Task was created ${task.id}`)
